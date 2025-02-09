@@ -1,0 +1,66 @@
+version: '3.8'
+services:
+    database:
+        image: 'mariadb:10.5'
+        restart: always
+        command: '--default-authentication-plugin=mysql_native_password'
+        volumes:
+            - '/srv/pterodactyl/database:/var/lib/mysql'
+        environment:
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+    cache:
+        image: 'redis:alpine'
+        restart: always
+    panel:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+        links:
+            - database
+            - cache
+        volumes:
+            - '/srv/pterodactyl/var/:/app/var/'
+            - '/srv/pterodactyl/nginx/:/etc/nginx/http.d/'
+            - '/srv/pterodactyl/certs/:/etc/letsencrypt/'
+            - '/srv/pterodactyl/logs/:/app/storage/logs'
+        environment:
+            APP_KEY: ${APP_KEY}
+            APP_URL: ${APP_URL}
+            APP_TIMEZONE: ${APP_TIMEZONE}
+            APP_DEBUG: ${APP_DEBUG}
+            APP_SERVICE_AUTHOR: ${APP_SERVICE_AUTHOR}
+            DB_PASSWORD: ${DB_PASSWORD}
+            APP_ENV: ${APP_ENV}
+            APP_ENVIRONMENT_ONLY: ${APP_ENVIRONMENT_ONLY}
+            CACHE_DRIVER: ${CACHE_DRIVER}
+            SESSION_DRIVER: ${SESSION_DRIVER}
+            QUEUE_DRIVER: ${QUEUE_DRIVER}
+            REDIS_HOST: ${REDIS_HOST}
+            DB_HOST: ${DB_HOST}
+            DB_USERNAME: ${DB_USERNAME}
+            DB_DATABASE: ${DB_DATABASE}
+            DB_PORT: ${DB_PORT}
+            HASHIDS_SALT: ${HASHIDS_SALT}
+            MAIL_FROM: ${MAIL_FROM}
+            MAIL_DRIVER: ${MAIL_DRIVER}
+            MAIL_HOST: ${MAIL_HOST}
+            MAIL_PORT: ${MAIL_PORT}
+            MAIL_USERNAME: ${MAIL_USERNAME}
+            MAIL_PASSWORD: ${MAIL_PASSWORD}
+            MAIL_ENCRYPTION: ${MAIL_ENCRYPTION}
+            APP_BACKUP_DRIVER: ${APP_BACKUP_DRIVER}
+            AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
+            AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+            AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+            AWS_BACKUPS_BUCKET: ${AWS_BACKUPS_BUCKET}
+            AWS_ENDPOINT: ${AWS_ENDPOINT}
+networks:
+    default:
+        ipam:
+            config:
+
+                - subnet: 172.20.0.0/16
