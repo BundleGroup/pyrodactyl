@@ -242,7 +242,7 @@ export default () => {
 
                     <MainSidebar className={`${isSidebarVisible ? '' : 'hidden'} lg:flex`}>
                         <div
-                            className='absolute bg-brand w-[3px] h-10 left-0 rounded-full pointer-events-none'
+                            className='absolute bg-brand text-gray-900 w-[3px] h-10 left-0 rounded-full pointer-events-none'
                             style={{
                                 top,
                                 height,
@@ -284,7 +284,7 @@ export default () => {
                                     {rootAdmin && (
                                         <DropdownMenuItem onSelect={onSelectManageServer}>
                                             Manage Server
-                                            <span className='ml-2 z-10 rounded-full bg-brand px-2 py-1 text-xs'>
+                                            <span className='ml-2 z-10 rounded-full bg-brand text-gray-900 px-2 py-1 text-xs'>
                                                 Staff
                                             </span>
                                         </DropdownMenuItem>

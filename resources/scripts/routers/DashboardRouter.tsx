@@ -106,7 +106,7 @@ export default () => {
 
             <MainSidebar className={`lg:flex ${isSidebarVisible ? '' : 'hidden'}`}>
                 <div
-                    className='absolute bg-brand w-[3px] h-10 left-0 rounded-full pointer-events-none'
+                    className='absolute bg-brand text-gray-900 w-[3px] h-10 left-0 rounded-full pointer-events-none'
                     style={{
                         top,
                         height,
@@ -116,7 +116,7 @@ export default () => {
                     }}
                 />
                 <div
-                    className='absolute bg-brand w-12 h-10 blur-2xl left-0 rounded-full pointer-events-none'
+                    className='absolute bg-brand text-gray-900 w-12 h-10 blur-2xl left-0 rounded-full pointer-events-none'
                     style={{
                         top,
                         opacity: top === '0' ? 0 : 0.5,
@@ -148,7 +148,7 @@ export default () => {
                             {rootAdmin && (
                                 <DropdownMenuItem onSelect={onSelectAdminPanel}>
                                     Admin Panel
-                                    <span className='ml-2 z-10 rounded-full bg-brand px-2 py-1 text-xs text-white'>
+                                    <span className='ml-2 z-10 rounded-full bg-brand text-gray-900 px-2 py-1 text-xs text-white'>
                                         Staff
                                     </span>
                                 </DropdownMenuItem>
