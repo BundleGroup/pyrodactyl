@@ -20,7 +20,7 @@ module.exports = {
                 current: 'currentColor',
                 black: '#000000',
                 brandGrad: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)',
-                brand: '#4DFFD3',
+                brand: '#eff6ff',
             },
             transitionDuration: {
                 250: '250ms',
