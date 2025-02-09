@@ -43,7 +43,7 @@
         <header class="main-header">
             <a href="{{ route('index') }}" class="logo">
                 <img width="32px" src="https://host.bundlegroup.gg/logo.png"
-                    style="object-fit:contain;margin-right:10px">
+                    style="object-fit:contain;margin-right:10px" />
                 <span>{{ config('app.name', 'Panel') }}</span>
             </a>
             <nav class="navbar navbar-static-top">
