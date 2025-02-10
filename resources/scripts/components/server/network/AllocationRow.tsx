@@ -22,6 +22,8 @@ import { ServerContext } from '@/state/server';
 
 import { useFlashKey } from '@/plugins/useFlash';
 
+import ReverseProxyAllocationButton from './ReverseProxyAllocationButton';
+
 interface Props {
     allocation: Allocation;
 }
@@ -97,6 +99,9 @@ const AllocationRow = ({ allocation }: Props) => {
                 </InputSpinner>
             </div>
             <div className={'flex justify-end space-x-4 mt-4 w-full md:mt-0 md:w-48'}>
+                <Can action={'allocation.update'}>
+                    <ReverseProxyAllocationButton allocation={allocation.id} />
+                </Can>
                 {allocation.isDefault ? (
                     <p>Primary Port</p>
                 ) : (
