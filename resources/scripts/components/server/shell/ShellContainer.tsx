@@ -32,7 +32,7 @@ interface Egg {
         id: number;
         uuid: string;
         name: string;
-        description: string;
+        description: string | null;
     };
 }
 
@@ -265,7 +265,8 @@ const SoftwareContainer = () => {
         });
     };
 
-    const renderEggDescription = (description: string, index: number) => {
+    const renderEggDescription = (description: string | null, index: number) => {
+        if (!description) return null;
         const isLongDescription = description.length > MAX_DESCRIPTION_LENGTH;
         const shouldShowFull = showFullDescriptions[index];
 
