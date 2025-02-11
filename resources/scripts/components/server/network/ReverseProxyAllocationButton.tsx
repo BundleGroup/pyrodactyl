@@ -12,7 +12,7 @@ interface Props {
 }
 
 interface Values {
-    subdomain: string;
+    domain: string;
 }
 
 const ReverseProxyAllocationButton = ({ allocation }: Props) => {
@@ -41,32 +41,35 @@ const ReverseProxyAllocationButton = ({ allocation }: Props) => {
                     onSubmit={handleAddReverseProxy}
                     initialValues={
                         {
-                            subdomain: '',
+                            domain: '',
                         } as Values
                     }
                     validationSchema={object().shape({
-                        subdomain: string().required('A valid subdomain must be provided.'),
+                        domain: string().required('A valid domain must be provided.'),
                     })}
                 >
                     <Dialog.Icon position={'container'} type={'success'} />
 
                     <Form>
                         <Field
-                            name={'subdomain'}
-                            label={'Subdomain'}
+                            name={'domain'}
+                            label={'Domain'}
                             description={
-                                'Enter the subdomain added to the reverse proxy. This will be used to access your server from the internet.'
+                                'Enter the domain pointing to our reverse proxy server. This will be used to access your server from the internet.'
                             }
                         />
                     </Form>
 
                     <Dialog.Footer>
                         <Button.Text disabled={loading} type={'submit'}>
-                            Add Reverse Proxy
+                            Create Reverse Proxy
                         </Button.Text>
                     </Dialog.Footer>
                 </Formik>
             </Dialog>
+            <Button.Text size={Button.Sizes.Small} onClick={() => setOpen(true)}>
+                Add Reverse Proxy
+            </Button.Text>
         </>
     );
 };
