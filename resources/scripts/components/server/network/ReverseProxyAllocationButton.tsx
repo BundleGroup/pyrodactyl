@@ -67,9 +67,9 @@ const ReverseProxyAllocationButton = ({ allocation }: Props) => {
                     </Dialog.Footer>
                 </Formik>
             </Dialog>
-            <Button.Text size={Button.Sizes.Small} onClick={() => setOpen(true)}>
+            {/* <Button.Text size={Button.Sizes.Small} onClick={() => setOpen(true)}>
                 Add Reverse Proxy
-            </Button.Text>
+            </Button.Text> */}
         </>
     );
 };
