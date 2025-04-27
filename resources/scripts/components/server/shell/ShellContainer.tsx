@@ -411,7 +411,6 @@ const SoftwareContainer = () => {
                                 <div>
                                     <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4'>
                                         {selectedNest.attributes.relationships.eggs.data.map((egg, eggIndex) =>
-                                            currentEgg === egg.attributes.uuid ? null : (
                                                 <div
                                                     key={egg.attributes.uuid}
                                                     className={`cursor-pointer border p-4 rounded-lg bg-[#3333332a] w-full ${
@@ -437,7 +436,6 @@ const SoftwareContainer = () => {
                                                         {renderEggDescription(egg.attributes.description, eggIndex)}
                                                     </p>
                                                 </div>
-                                            ),
                                         )}
                                     </div>
                                 </div>
