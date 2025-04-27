@@ -283,7 +283,7 @@ export default () => {
                     <div className='flex flex-row w-full'>
                         <MainSidebar
                             ref={sidebarRef}
-                            className={`fixed inset-y-0 left-0 z-[9999] text-gray-900 w-[300px] bg-[#1a1a1a] transition-transform duration-300 ease-in-out absolute backdrop-blur-sm ${
+                            className={`fixed inset-y-0 left-0 z-[9999] w-[300px] bg-[#1a1a1a] transition-transform duration-300 ease-in-out absolute backdrop-blur-sm ${
                                 isSidebarVisible ? 'translate-x-0' : '-translate-x-full'
                             } lg:translate-x-0 lg:relative lg:flex lg:shrink-0`}
                             onTouchStart={handleTouchStart}
@@ -332,7 +332,7 @@ export default () => {
                                         {rootAdmin && (
                                             <DropdownMenuItem onSelect={onSelectManageServer}>
                                                 Manage Server
-                                                <span className='ml-2 z-10 rounded-full bg-brand text-gray-900 px-2 py-1 text-xs select-none'>
+                                                <span className='ml-2 z-10 rounded-full bg-brand px-2 py-1 text-xs select-none'>
                                                     Staff
                                                 </span>
                                             </DropdownMenuItem>
