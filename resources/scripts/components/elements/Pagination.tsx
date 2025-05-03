@@ -6,6 +6,7 @@ import { PaginatedResult } from '@/api/http';
 
 import HugeIconsArrowLeft from './hugeicons/ArrowLeft';
 import HugeIconsArrowRight from './hugeicons/ArrowRight';
+import HugeIconsArrowRight05 from './hugeicons/HugeIconsArrowRight05';
 
 interface RenderFuncProps<T> {
     items: T[];
@@ -84,6 +85,19 @@ function Pagination<T>({ data: { items, pagination }, onPageSelect, children }: 
                             }
                         >
                             <HugeIconsArrowRight
+                                fill={'currentColor'}
+                                className={`${pagination.currentPage === pagination.totalPages ? 'text-neutral-500 cursor-not-allowed' : 'text-white'}`}
+                            />
+                        </Block>
+
+                        <Block
+                            isSecondary
+                            color={'primary'}
+                            onClick={() =>
+                                pagination.currentPage < pagination.totalPages && onPageSelect(pagination.totalPages)
+                            }
+                        >
+                            <HugeIconsArrowRight05
                                 fill={'currentColor'}
                                 className={`${pagination.currentPage === pagination.totalPages ? 'text-neutral-500 cursor-not-allowed' : 'text-white'}`}
                             />
