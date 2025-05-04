@@ -8,7 +8,6 @@ const HugeIconsArrowRight05 = (props: HugeIconProps) => {
             viewBox='0 0 24 24'
             width='24'
             height='24'
-            color='#000000'
             fill='none'
         >
             <path d='M20.0001 18L20.0001 6' stroke='#000000' stroke-width='1.5' stroke-linecap='round'></path>
