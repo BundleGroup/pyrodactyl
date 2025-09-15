@@ -87,8 +87,8 @@ function getEmptyData(label: string, sets = 1, callback?: ChartDatasetCallback |
                         fill: true,
                         label,
                         data: Array(20).fill(-5),
-                        borderColor: '#fa4e49',
-                        backgroundColor: hexToRgba('#fa4e49', 0.09),
+                        borderColor: '#2dd0a2',
+                        backgroundColor: hexToRgba('#2dd0a2', 0.09),
                     },
                     index,
                 ),
@@ -154,4 +154,5 @@ function useChartTickLabel(label: string, max: number, tickLabel: string, roundT
     });
 }
 
-export { useChart, useChartTickLabel, getOptions, getEmptyData };
+export { getEmptyData, getOptions, useChart, useChartTickLabel };
+
